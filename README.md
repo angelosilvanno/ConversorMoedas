@@ -20,8 +20,6 @@ O sistema consome dados da **ExchangeRate-API** para fornecer cotações atualiz
 * **Java Properties**: Utilizado para gerenciar a chave da API com segurança.
 * **Git & GitHub**: Para versionamento e documentação.
 
----
-
 ## ⚙️ Pré-requisitos e Instalação
 
 ### 1. Requisitos do Sistema
@@ -39,8 +37,6 @@ Para que o projeto funcione e sua chave permaneça segura:
 api.key=sua_chave_aqui
 
 ```
-
-
 
 *O arquivo `.gitignore` já está configurado para garantir que este arquivo de configuração não seja enviado ao seu repositório público.*
 
