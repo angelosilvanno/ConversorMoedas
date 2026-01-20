@@ -1,13 +1,26 @@
 package service;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Properties;
 
 public class ServicoCambio {
 
-    private String apiKey = "f8b9a75c5126ef6868dfc6c5";
+    private String apiKey;
+
+    public ServicoCambio() {
+        Properties props = new Properties();
+        try (FileInputStream file = new FileInputStream("config.properties")) {
+            props.load(file);
+            this.apiKey = props.getProperty("api.key");
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao carregar o arquivo config.properties");
+        }
+    }
 
     public double converter(String de, String para, double valor) {
         try {
@@ -18,11 +31,11 @@ public class ServicoCambio {
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
-                    .build(); // O .GET() é o padrão, pode simplificar assim
+                    .build();
 
             HttpResponse<String> response =
                     client.send(request, HttpResponse.BodyHandlers.ofString());
-                    
+
             if (response.statusCode() != 200) {
                 throw new RuntimeException("API indisponível no momento.");
             }
