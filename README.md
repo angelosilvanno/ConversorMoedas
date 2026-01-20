@@ -52,7 +52,6 @@ git clone https://github.com/angelosilvanno/ConversorMoedas.git
 2. Importe o projeto em sua IDE de preferência.
 3. Execute a classe `app.Main`.
 
----
 
 ## 📦 Estrutura de Pastas
 
